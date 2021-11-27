@@ -1,1 +1,61 @@
-<mxfile host="app.diagrams.net" modified="2021-11-27T04:47:39.922Z" agent="5.0 (Windows)" version="15.7.0" etag="6wdu33_J9KJPxsSs7sc5" type="github"><diagram id="7xtlxK2uIL1XAMbsBRYK">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-11-27T04:55:28.963Z" agent="5.0 (Windows)" etag="i-qxe-m_NNbSoVb5J45F" version="15.7.0" type="github">
+  <diagram id="7xtlxK2uIL1XAMbsBRYK" name="Page-1">
+    <mxGraphModel dx="868" dy="478" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="LdxcuvaEexsE41JmLjMp-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="LdxcuvaEexsE41JmLjMp-1" target="LdxcuvaEexsE41JmLjMp-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LdxcuvaEexsE41JmLjMp-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="LdxcuvaEexsE41JmLjMp-1" target="LdxcuvaEexsE41JmLjMp-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LdxcuvaEexsE41JmLjMp-1" value="Customer" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LdxcuvaEexsE41JmLjMp-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="LdxcuvaEexsE41JmLjMp-2" target="LdxcuvaEexsE41JmLjMp-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LdxcuvaEexsE41JmLjMp-2" value="Registrasi" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="280" y="400" width="130" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="LdxcuvaEexsE41JmLjMp-4" value="Data customer baru" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="160" y="340" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LdxcuvaEexsE41JmLjMp-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="LdxcuvaEexsE41JmLjMp-6" target="LdxcuvaEexsE41JmLjMp-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LdxcuvaEexsE41JmLjMp-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="LdxcuvaEexsE41JmLjMp-6" target="LdxcuvaEexsE41JmLjMp-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LdxcuvaEexsE41JmLjMp-6" value="&lt;div&gt;Login&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="280" y="120" width="130" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="LdxcuvaEexsE41JmLjMp-8" value="Data customer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=0;" vertex="1" parent="1">
+          <mxGeometry x="150" y="160" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LdxcuvaEexsE41JmLjMp-10" value="Jika belum punya akun" style="text;whiteSpace=wrap;html=1;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="295" y="310" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LdxcuvaEexsE41JmLjMp-11" value="Lanjut pembelian barang" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="560" y="120" width="130" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="LdxcuvaEexsE41JmLjMp-13" value="login berhasil" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="160" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LdxcuvaEexsE41JmLjMp-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.923;entryY=0.808;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="LdxcuvaEexsE41JmLjMp-15" target="LdxcuvaEexsE41JmLjMp-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LdxcuvaEexsE41JmLjMp-15" value="Registrasi berhasil" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="560" y="400" width="130" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="LdxcuvaEexsE41JmLjMp-17" value="Akun terbuat" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="440" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LdxcuvaEexsE41JmLjMp-21" value="Username &amp;amp; password" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="300" width="150" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
