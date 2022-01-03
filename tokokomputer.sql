@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2021 at 08:26 AM
+-- Generation Time: Jan 03, 2022 at 05:56 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -42,9 +42,14 @@ CREATE TABLE `data_produks` (
 --
 
 INSERT INTO `data_produks` (`id`, `nama_brg`, `keterangan`, `kategori`, `harga`, `stok`, `gambar`) VALUES
-(1, 'Wireless Mouse', 'Logitech Wireless Mouse M170', 'Aksesoris', 90000, 10, 'mouse1.jpg'),
-(2, 'Wireless Mouse', 'Logitech Wireless Gaming Mouse G502', 'Aksesoris', 200000, 20, 'mouse2.jpg'),
-(9, 'nathan ganteng pacarnya depi', 'asasa', 'asasa', 12, 12, 'sad');
+(1, 'Wireless Mouse', 'Logitech Wireless Mouse M17012', 'Aksesoris', 12000, 10, 'mouse1.jpg'),
+(4, 'Wireless Mouse', 'Logitech Wireless Mouse M170123', 'Mouse', 200000, 12, 'mouse2.jpg'),
+(6, 'Laptop', 'Laptop ASUS M13 12\'', 'Laptop', 15000000, 10, 'laptop1.jpg'),
+(7, 'PC', 'Personal Computer', 'Personal Computer', 10000000, 5, 'pc1.jpg'),
+(8, 'Headset Gaming', 'Razer Kraken', 'Aksesoris', 400000, 40, 'headset1.jpg'),
+(9, 'Headset Gaming', 'Razer Kraken Ktty', 'Aksesoris', 500000, 14, 'headset2.jpg'),
+(10, 'Wired Mouse', 'RGB Gaming Mouse  GM710', 'Aksesoris', 340000, 5, 'mouse4.jpg'),
+(11, 'Gaming Wired Mouse', 'Logitech Wired Mouse MLLR1', 'Aksesoris', 250000, 12, 'mouse3.jpg');
 
 -- --------------------------------------------------------
 
@@ -83,7 +88,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2021_12_22_141211_create_data_produks_table', 1);
+(5, '2021_12_22_141211_create_data_produks_table', 1),
+(6, '2021_12_30_104233_create_pesanans_table', 1),
+(7, '2021_12_30_104645_create_pesanan_details_table', 1);
 
 -- --------------------------------------------------------
 
@@ -118,6 +125,38 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pesanans`
+--
+
+CREATE TABLE `pesanans` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `jumlah_harga` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pesanan_details`
+--
+
+CREATE TABLE `pesanan_details` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `produk_id` int(11) NOT NULL,
+  `pesanan_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `jumlah_harga` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -127,6 +166,7 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alamat` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -170,6 +210,18 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `pesanans`
+--
+ALTER TABLE `pesanans`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pesanan_details`
+--
+ALTER TABLE `pesanan_details`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -184,7 +236,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `data_produks`
 --
 ALTER TABLE `data_produks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -196,12 +248,24 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pesanans`
+--
+ALTER TABLE `pesanans`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pesanan_details`
+--
+ALTER TABLE `pesanan_details`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
