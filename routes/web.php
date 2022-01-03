@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\dataProdukController;
 use App\Models\dataProduk;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\dataProdukController;
 
 
 /*
@@ -16,7 +19,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+
+Route::get('/', [ProdukController::class, 'index']);
+
+Route::get('/detailProduk', function () {
+    return view('users.detailProduk', [
+        "title" => "Detail Produk"
+    ]);
+});
+
+route::get('/detailProduk/{produkID}', [ProdukController::class, 'DetailProduk'])->name('detail.produk');
+
+
+Route::get('/adminDashboard', function () {
     return view('admin.adminDashboard', [
         "title" => "Dashboard Admin"
     ]);
@@ -24,6 +39,17 @@ Route::get('/', function () {
 
 Route::get('/login', function () {
     return view('admin.loginAdmin');
+});
+
+Route::get('/loginUser', [LoginController::class, 'index']);
+
+Route::get('/registerUser', [RegisterController::class, 'index']);
+
+Route::get('/dashboardToko', function () {
+    return view('users.dashboardToko', [
+        "title" => "Dashboard Toko"
+    ]);
+
 });
 
 // Route::get('produk/', [dataProdukController::class, 'index']);
@@ -34,6 +60,8 @@ Route::get('/login', function () {
 // Route::delete('produk/{produkID}/delete', [dataProdukController::class, 'destroy']);
 
 
+
+// Data Produk
 Route::get('/dataProduk', [dataProdukController::class, 'index']);
 route::get('/createProduk', [dataProdukController::class, 'create']);
 route::post('submit', [dataProdukController::class, 'submit']);

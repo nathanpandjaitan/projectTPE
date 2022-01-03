@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Gentelella Alela! | </title>
+        <title>StarComp | Login User </title>
 
         <!-- Bootstrap -->
         <link href="admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,14 +22,14 @@
         <link href="admin/build/css/custom.min.css" rel="stylesheet">
     </head>
 
-    <body class="login bg">
+    <body class="login bg" >
     
-        <div>
+        
         <div class="login_wrapper">
             <div class="animate form login_form">
             <section class="login_content">
                 <form>
-                <h1>Sign in</h1>
+                <h1 style="color: black">Log In</h1>
                 <div>
                     <input type="text" class="form-control" placeholder="Username" required="" />
                 </div>
@@ -37,7 +37,10 @@
                     <input type="password" class="form-control" placeholder="Password" required="" />
                 </div>
                 <div>
-                    <a class="btn btn-primary submit ml-3" href="/adminDashboard" style="word-spacing:2px; text-decoration:none;">Log in</a>
+                    <a class="btn btn-light submit ml-3" href="/" style="word-spacing:2px; text-decoration:none;">Log in</a>
+                    
+                    <p>Don't have an account? <a href="/registerUser" style="color: skyblue">Sign up</a></p>
+                  
                 </div>
 
                 <div class="clearfix"></div>
@@ -48,7 +51,7 @@
                     <div class="clearfix"></div>
                     <br />
                     <div>
-                    <h1><i class="fa fa-hearth"></i> StarComp</h1>
+                    <h1 style="color: black"><i class="fa fa-hearth" ></i> StarComp</h1>
                     </div>
                 </div>
                 </form>
@@ -56,5 +59,6 @@
         </div>
 
         </div>
+     
     </body>
     </html>

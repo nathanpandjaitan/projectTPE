@@ -14,6 +14,12 @@ class dataProduk extends Model
     // const CREATED_AT = null;
 
     protected $fillable = ['nama_brg', 'keterangan', 'kategori', 'harga', 'stok', 'gambar'];
+
+
+    public function pesanan_detail()
+    {
+        return $this->hasMany('App\PesananDetail', 'produk_id', 'id');
+    }
 }
 
 

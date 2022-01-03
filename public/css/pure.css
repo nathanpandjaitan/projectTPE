@@ -1,0 +1,44 @@
+:root {
+    --font: 'Viga', sans-serif;
+}
+
+body{
+    font-family: var(--font);
+}
+.norepeat{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('/img/background1.jpg');
+    height: 400px;
+    background-position: 0 -190px;
+    font-size: 48px;
+}
+
+nav .h1 {
+    opacity: 0.5;
+}
+
+.tombol {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    color: white;
+}
+
+.tomboll 
+{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    color: white;
+    margin-top: 70px;
+}
+
+
+.warna {
+    background-color: rgb(0, 161, 224);
+}
+
+.warna:hover {
+    background-color: rgb(0, 112, 156) ;
+}

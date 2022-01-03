@@ -31,7 +31,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="input1">Harga</label>
-                        <input type="number" class="form-control" id="input1" name="harga" value="{{  $produk->harga }}">
+                        <input type="text" class="form-control" id="input1" name="harga" value="{{  $produk->harga }}">
                     </div>
                     <div class="mb-3">
                         <label for="input1">Stok</label>
