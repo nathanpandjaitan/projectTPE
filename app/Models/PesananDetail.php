@@ -8,13 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class PesananDetail extends Model
 {
     use HasFactory;
+    protected $fillable = ['produk_id', 'pesanan_id', 'jumlah', 'jumlah_harga', 'user_id'];
 
     public function produk()
     {
         return $this->belongsTo('App\dataProduk', 'produk_id', 'id');
     }
 
-     public function pesanan_detail()
+     public function pesanan()
     {
         return $this->belongsTo('App\Pesanan', 'pesanan_id', 'id');
     }

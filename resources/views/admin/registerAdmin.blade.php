@@ -32,9 +32,9 @@
 
     <div class="login_wrapper">
         <section class="login_content">
-            <form action="/registerUser" method="post">
+            <form action="/register" method="post">
                 @csrf 
-                <h1 style="color: black">Create Account</h1>
+                <h1 style="color: black">Create Admin Account</h1>
                 <div class="form-floating">
                     <input type="text"  name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Name" required value="{{ old ('name') }}"/>
                     @error('name')

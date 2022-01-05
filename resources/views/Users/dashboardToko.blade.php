@@ -20,9 +20,20 @@
         <div class="w-4/5 bg-50 min-h-full flex items-center justify-between ">
           <a href="/">StarComp</a>  
             <div class="w-1/5 flex justify-between ">
+                @auth
                 <a href="">Cart</a>
-                <a href="">User</a>
-                <a href="/loginUser">Logout</a>
+                <div>
+                <svg class="w-5 h-5 inline-block" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+                <a href=""> Hi, <span class="text-red-500">{{ auth()->user()->name }}</span>!</a>
+                </div>
+                <form action="/logoutUser" method="post">
+                      @csrf
+                    <button type="submit" class="dropdown-item">Logout</button>
+                </form>
+                @else
+                <a href="/">Dashboard</a>
+                <a href="/loginUser">Login</a>
+                @endauth
             </div>
         </div>
     </nav>

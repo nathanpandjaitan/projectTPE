@@ -7,6 +7,7 @@
         <nav class="nav navbar-nav">
         <ul class=" navbar-right">
             <li class="nav-item dropdown open" style="padding-left: 15px;">
+                
                 <img src="images/img.jpg" alt="" />Admin
                 <a href="/login">Logout</a>
             </li>

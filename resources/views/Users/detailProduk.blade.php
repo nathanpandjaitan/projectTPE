@@ -15,11 +15,26 @@
     <!-- Navbar -->
     <nav class="relads font-viga z-10 ">
         <div class="w-4/5 bg-50 min-h-full flex items-center justify-between ">
-            <a href="/">StarComp</a> 
-            <div class="w-1/5 flex justify-between ">
+            <a href="/">StarComp</a>
+            <div class="w-1/5 flex justify-between mt-4">
+                @auth
                 <a href="">Cart</a>
-                <a href="">User</a>
-                <a href="/loginUser">Logout</a>
+                <div>
+                    <svg class="w-5 h-5 inline-block" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <a href=""> Hi, <span class="text-red-500">{{ auth()->user()->name }}</span>!</a>
+                </div>
+                <form action="/logoutUser" method="post">
+                    @csrf
+                    <button type="submit" class="dropdown-item">Logout</button>
+                </form>
+                @else
+                <a href="/">Dashboard</a>
+                <a href="/loginUser">Login</a>
+                @endauth
             </div>
         </div>
     </nav>
@@ -27,31 +42,43 @@
 
 
     <!-- Detail Produk -->
-  <section class="text-gray-600 body-font overflow-hidden">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="lg:w-4/5 mx-auto flex flex-wrap">
-      <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="{{ url('img') }}/{{ $produk->gambar }}">
-      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-        <h2 class="text-sm title-font text-gray-500 tracking-widest">{{  $produk->nama_brg }}</h2>
-        <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{  $produk->keterangan }}</h1>
-       <p class="leading-relaxed">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.</p>
+    <section class="text-gray-600 body-font overflow-hidden">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="lg:w-4/5 mx-auto flex flex-wrap">
+                <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+                    src="{{ url('img') }}/{{ $produk->gambar }}">
+                <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                    <h2 class="text-sm title-font text-gray-500 tracking-widest">{{  $produk->nama_brg }}</h2>
+                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{  $produk->keterangan }}</h1>
+                    <p class="leading-relaxed">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha
+                        taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage
+                        brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle
+                        pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.</p>
 
 
-      
-        <p class="leading-relaxed">{{  $produk->kategori }}</p>
 
-        <div class="flex mt-5">
-          <span class="title-font font-medium text-2xl text-gray-900">{{  $produk->harga }}</span>
-          <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
-          
+                    <p class="leading-relaxed text-black mt-3 uppercase">{{  $produk->kategori }}</p>
+                    <p class="text-black "> Stok : {{ $produk->stok }}</p>
+
+                    <div class="flex mt-5">
+                        <span class="title-font font-medium text-2xl text-gray-900">Price : Rp.{{  $produk->harga }}</span>
+                    </div>
+
+                    <div class="">
+                    <form action="{{ url('pesan') }}/{{ $produk->id }}" method="post">
+                      @csrf 
+                      <input type="number" name="jumlah_pesan" id="jumlah_pesan" class="form-control"  style="border: 1px solid gray" >
+                      <button type="submit"
+                            class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
+                    </form>
+                    </div>
+                    <div class="tomboll">
+                        <a href="/" class="py-1 px-2 rounded-xl mt-4 warna">Back</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="tomboll">
-        <a href="/" class="py-1 px-2 rounded-xl mt-4 warna">Back</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- Akhir Detail Produk -->
 

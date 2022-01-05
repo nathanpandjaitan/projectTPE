@@ -37,6 +37,9 @@ nav .h1 {
 
 .warna {
     background-color: rgb(0, 161, 224);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
 .warna:hover {

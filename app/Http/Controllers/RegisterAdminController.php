@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\UserAdmin;
 
-class RegisterController extends Controller
+class RegisterAdminController extends Controller
 {
     public function index ()
     {
-        return view ('users.register', 
+        return view ('admin.registerAdmin', 
         [
-            'title' => 'Register User'
+            'title' => 'Register Admin'
         ]);
     }
 
@@ -27,13 +27,13 @@ class RegisterController extends Controller
 
         $validatedData['password'] = bcrypt ($validatedData['password']);
 
-        User::create($validatedData);
+        UserAdmin::create($validatedData);
 
         // flash Message jika login berhasil 
         // $request->session()->flash('success', 'Registration successfull! Please login');
 
         //                             Cara lebih ringkas Flash Message
-        return redirect('/loginUser')->with('success', 'Registration successfull! Please login');
+        return redirect('/login')->with('success', 'Berhasil!, Akun admin telah terbuat');
 
     }
 

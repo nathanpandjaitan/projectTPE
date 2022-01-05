@@ -1,12 +1,15 @@
 <?php
 
 use App\Models\dataProduk;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\dataProdukController;
-
+use App\Http\Controllers\LoginAdminController;
+use App\Http\Controllers\RegisterAdminController;
+use App\Http\Controllers\DashboardAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,35 +25,39 @@ use App\Http\Controllers\dataProdukController;
 
 Route::get('/', [ProdukController::class, 'index']);
 
-Route::get('/detailProduk', function () {
-    return view('users.detailProduk', [
-        "title" => "Detail Produk"
-    ]);
-});
 
 route::get('/detailProduk/{produkID}', [ProdukController::class, 'DetailProduk'])->name('detail.produk');
+route::post('pesan/{produkID}', [ProdukController::class, 'pesan']);
 
 
-Route::get('/adminDashboard', function () {
-    return view('admin.adminDashboard', [
-        "title" => "Dashboard Admin"
-    ]);
-});
 
-Route::get('/login', function () {
-    return view('admin.loginAdmin');
-});
 
-Route::get('/loginUser', [LoginController::class, 'index']);
+Route::get('/adminDashboard', [DashboardAdminController::class, 'index']) ;
 
-Route::get('/registerUser', [RegisterController::class, 'index']);
 
-Route::get('/dashboardToko', function () {
-    return view('users.dashboardToko', [
-        "title" => "Dashboard Toko"
-    ]);
+// LOGIN USER
+Route::get('/loginUser', [LoginController::class, 'index'])->Middleware('guest');
+Route::post('/loginUser', [LoginController::class, 'authenticate']);
+Route::post('/logoutUser', [LoginController::class, 'logout']);
 
-});
+// REGISTRASI USER
+Route::get('/registerUser', [RegisterController::class, 'index'])->middleware('guest');
+Route::post('/registerUser', [RegisterController::class, 'store']);
+
+
+
+
+// LOGIN ADMIN 
+route::get('/login', [LoginAdminController::class, 'index'])->middleware('guest');
+Route::post('/login', [LoginAdminController::class, 'authenticate']);
+
+// REGISTRASI ADMIN
+
+Route::get('/register', [RegisterAdminController::class, 'index']);
+Route::post('/register', [RegisterAdminController::class, 'store']);
+
+
+
 
 // Route::get('produk/', [dataProdukController::class, 'index']);
 // Route::get('produk/create', [dataProdukController::class, 'create']);
@@ -61,7 +68,7 @@ Route::get('/dashboardToko', function () {
 
 
 
-// Data Produk
+// DATA PRODUK
 Route::get('/dataProduk', [dataProdukController::class, 'index']);
 route::get('/createProduk', [dataProdukController::class, 'create']);
 route::post('submit', [dataProdukController::class, 'submit']);

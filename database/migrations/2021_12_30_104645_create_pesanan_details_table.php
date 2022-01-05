@@ -17,7 +17,6 @@ class CreatePesananDetailsTable extends Migration
             $table->id();
             $table->integer('produk_id');
             $table->integer('pesanan_id');
-            $table->integer('user_id');
             $table->integer('jumlah');
             $table->integer('jumlah_harga');
             $table->timestamps();
