@@ -28,6 +28,10 @@ Route::get('/', [ProdukController::class, 'index']);
 
 route::get('/detailProduk/{produkID}', [ProdukController::class, 'DetailProduk'])->name('detail.produk');
 route::post('pesan/{produkID}', [ProdukController::class, 'pesan']);
+route::get('checkout', [ProdukController::class, 'check_out']);
+route::delete('checkout/{id}', [ProdukController::class, 'delete']);
+
+route::get('konfirmasi-checkout', [ProdukController::class, 'konfirmasi']);
 
 
 

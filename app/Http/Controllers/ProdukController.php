@@ -6,10 +6,17 @@ use App\Models\Pesanan;
 use App\Models\PesananDetail;
 use Illuminate\Support\Facades\Auth;
 use carbon\Carbon;
+Use Alert;
 use Illuminate\Http\Request;
 
 class ProdukController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index ()
     {
         $produks = dataProduk::all();
@@ -85,10 +92,61 @@ class ProdukController extends Controller
         $pesanan-> jumlah_harga = $pesanan->jumlah_harga+$produk->harga*$request->jumlah_pesan;
         $pesanan->update();
         
+        alert()->success('Adding Success!','Product added to cart.');
+        return redirect('/checkout');
 
-        return redirect('/');
+    }
+
+    public function check_out()
+    {
+        $pesanan = Pesanan::where('user_id', Auth()->user()->id)->where('status', 0)->first();
+        $pesanan_details = [];
+        if(!empty($pesanan))
+        {
+            $pesanan_details = PesananDetail::where('pesanan_id', $pesanan->id)->get();
+        }
+        
+
+        return view('users.checkout', compact('pesanan', 'pesanan_details'), 
+            [
+                "title" => "Checkout"
+            ]);
+
+    }
+
+    public function delete ($id)
+    {
+        $pesanan_detail = PesananDetail::where('id', $id)->first();
+
+        $pesanan = Pesanan::where('id', $pesanan_detail->pesanan_id)->first();
+        $pesanan->jumlah_harga = $pesanan->jumlah_harga-$pesanan_detail->jumlah_harga;
+        $pesanan->update();
 
 
+        $pesanan_detail->delete();
+
+        Alert::error('Pesanan Sukses Dihapus', 'Hapus');
+        return redirect('checkout');
+    }
+
+    public function konfirmasi()
+    {
+        $pesanan = Pesanan::where('user_id', Auth()->user()->id)->where('status', 0)->first();
+        $pesanan_id = $pesanan->id; 
+        $pesanan->status = 1;
+        $pesanan->update();
+
+        $pesanan_details = PesananDetail::where('pesanan_id', $pesanan_id)->get();
+        foreach ($pesanan_details as $pesanan_detail)
+        {
+            $produk = dataProduk::where('id', $pesanan_detail->produk_id)->first();
+            $produk->stok = $produk->stok-$pesanan_detail->jumlah;
+            $produk->update();
+
+        }
+
+        Alert::Success('Pesanan Sukses di Checkout', 'Success ');
+        return redirect('checkout');
     }
 
 
