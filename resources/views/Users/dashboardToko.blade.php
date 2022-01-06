@@ -64,6 +64,7 @@
         </div>
     </nav>
     <!-- Akhir Navbar -->
+    <!-- Akhir Navbar -->
     <div class="norepeat flex items-center justify-center text-white">
         <h1 class=> Think Different</h1>
     </div>

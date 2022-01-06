@@ -40,7 +40,7 @@ Route::get('/adminDashboard', [DashboardAdminController::class, 'index']) ;
 
 
 // LOGIN USER
-Route::get('/loginUser', [LoginController::class, 'index'])->Middleware('guest');
+Route::get('/loginUser', [LoginController::class, 'index'])->Middleware('guest')->name('login');
 Route::post('/loginUser', [LoginController::class, 'authenticate']);
 Route::post('/logoutUser', [LoginController::class, 'logout']);
 
